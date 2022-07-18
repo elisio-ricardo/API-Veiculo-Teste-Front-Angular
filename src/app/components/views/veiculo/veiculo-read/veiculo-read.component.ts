@@ -56,11 +56,18 @@ export class VeiculoReadComponent implements OnInit {
     });
   }
 
-  findAllFilter() {   
-    console.log("To aqui " + this.veiculoObj.marca);     
+  findAllFilter() {          
     this.service.findAllFilter(this.veiculoObj.marca, this.veiculoObj.ano, this.veiculoObj.cor).subscribe((resposta) => {      
       this.veiculoLista = resposta;
     });
+  }
+
+  findAllRecentes(){
+    this.service.findAllRecente().subscribe((resposta) => {
+      console.log(resposta);     
+      this.veiculoLista = resposta;
+    });
+
   }
 
 

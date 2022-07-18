@@ -7,11 +7,8 @@
     <button class="mat-elevation-z8" (click)="navegarParaVeiculoCreate()" mat-stroked-button color="primary">Novo
         Veiculo</button>
 
-    <button class="mat-elevation-z8" (click)="navegarParaQuantidadeVeiculo()" mat-stroked-button
-        color="primary">Quantidade Por Marcas</button>
-
-        <button class="mat-elevation-z8" (click)="navegarParaQuantidadeVeiculo()" mat-stroked-button
-        color="primary">Quantidade Por Decadas</button>
+    <button (click)="findAllRecentes()" class="mat-elevation-z8" mat-stroked-button color="primary">Recém
+        Adicionados</button>
 
     <!-- Filtrando Por Atributos -->
     <form>
@@ -34,11 +31,14 @@
                 placeholder="Ex. Azul/preto/vermelho">
         </mat-form-field>
 
-        <button  (click)="findAllFilter()" class="mat-elevation-z8" mat-stroked-button color="primary">Filtrar</button>
+        <button (click)="findAllFilter()" class="mat-elevation-z8" mat-stroked-button color="primary">Filtrar</button>
 
-        <button  (click)="findAllRemoverfiltros()" class="mat-elevation-z8" mat-stroked-button color="primary">Remover Filtros</button>
-
+        <button (click)="findAllRemoverfiltros()" class="mat-elevation-z8" mat-stroked-button color="primary">Remover
+            Filtros</button>
     </form>
+
+
+
 
 
     <div class="mat-elevation-z8 content-table">

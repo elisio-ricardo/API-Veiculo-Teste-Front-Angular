@@ -41,6 +41,11 @@ export class VeiculoService {
     return this.http.get<Veiculo[]>(url);
   }
 
+  findAllRecente(): Observable<Veiculo[]> {
+    const url = `${this.baseUrl}/veiculo/ultimasemana`;
+    return this.http.get<Veiculo[]>(url);
+  }
+
   findAllFilter(
     marca: String,
     ano: String,
@@ -56,10 +61,8 @@ export class VeiculoService {
     };
 
     const queryParamsString = new HttpParams({ fromObject: veic }).toString();
-
     let URL = `${this.baseUrl}/veiculo?` + queryParamsString.toString();
-
-    console.log("Essa é a URL final " + URL.toString());
+    
     return this.http.get<Veiculo[]>(URL);
   }
 
