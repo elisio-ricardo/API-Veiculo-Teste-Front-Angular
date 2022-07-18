@@ -1,0 +1,67 @@
+.content {
+    width: 90%;
+    margin: 1.4rem auto auto auto;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+button {
+    margin-bottom: 0.6rem;
+}
+
+
+.title h1 {
+    font-size: 2rem;
+    color: black;
+    font-weight: 500;
+}
+
+.table {
+    width: 100%;
+    text-overflow: ellipsis;
+
+}
+
+.table td {
+    border-left-width: 0;
+    min-width: 100px;
+    height: 18px;
+    text-overflow: ellipsis;
+    max-width: 15ch;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 5px solid transparent;
+    background-clip: padding-box;
+    text-align: center;
+
+
+}
+
+.table th {
+    text-align: center;
+}
+
+.veiculos {
+    margin-left: .5rem;
+    color: blue;
+}
+
+.edit {
+    color: black;
+}
+
+.delete {
+    color: rgb(233, 42, 42);
+    margin-left: 0.5rem;
+}
+
+.mat-header {
+    width: 5rem;
+}
+
+mat-form-field {
+    margin-right: 12px;
+  }

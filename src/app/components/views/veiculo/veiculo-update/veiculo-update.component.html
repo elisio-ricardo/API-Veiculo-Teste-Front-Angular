@@ -1,0 +1,58 @@
+<form>
+    <h1>Atualizando Veiculo</h1>
+
+    <mat-form-field class="form">
+        <mat-label>Nome Veiculo</mat-label>
+        <input matInput [(ngModel)]="veiculoModel.veiculo" [formControl]="veiculo" required type="text" name="veiculo"
+            placeholder="Ex. Palio" maxlength="100">
+        <mat-error *ngIf="veiculo.invalid"> {{ getMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Marca</mat-label>
+        <input matInput [(ngModel)]="veiculoModel.marca" [formControl]="marca" required type="text" name="marca"
+            placeholder="Ex. Fiat" maxlength="100">
+        <mat-error *ngIf="marca.invalid"> {{ getMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Ano Fabricação</mat-label>
+        <input matInput [(ngModel)]="veiculoModel.ano" [formControl]="ano" required type="number" name="ano"
+            placeholder="Ex. 2010" maxlength="4">
+        <mat-error *ngIf="ano.invalid"> {{ getMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Cor</mat-label>
+        <input matInput [(ngModel)]="veiculoModel.cor" [formControl]="cor" required type="text" name="ano"
+            placeholder="Ex. Azul" maxlength="30">
+        <mat-error *ngIf="cor.invalid"> {{ getMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Descrição</mat-label>
+        <input matInput [(ngModel)]="veiculoModel.descricao" [formControl]="descricao" required type="text" name="ano"
+            placeholder="Ex. Novo/semi-novo/detalhes" maxlength="100">
+        <mat-error *ngIf="descricao.invalid"> {{ getMessage() }}</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="form">
+        <mat-label>Criado</mat-label>
+        <input matInput [(ngModel)]="veiculoModel.updated" [formControl]="created" required type="date" name="created"
+            placeholder="Ex. 2022-07-18" maxlength="10">
+        <mat-error *ngIf="created.invalid"> {{ getMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Atualizado</mat-label>
+        <input matInput [(ngModel)]="veiculoModel.updated"  required type="date" name="updated"
+            placeholder="Ex. 2022-07-18" maxlength="10">        
+    </mat-form-field>
+
+    <div class="buttons">
+        <button (click)="update()" class="mat-elevation-z8" [disabled]="getMessage()" mat-stroked-button
+            color="primary">Atualizar</button>
+        <button (click)="cancel()" class="mat-elevation-z8" mat-stroked-button color="warn">Cancelar</button>
+    </div>
+
+</form>

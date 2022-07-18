@@ -1,0 +1,120 @@
+<div class="content">
+
+    <div class="title">
+        <h1>Veiculos</h1>
+    </div>
+
+    <button class="mat-elevation-z8" (click)="navegarParaVeiculoCreate()" mat-stroked-button color="primary">Novo
+        Veiculo</button>
+
+    <button class="mat-elevation-z8" (click)="navegarParaQuantidadeVeiculo()" mat-stroked-button
+        color="primary">Quantidade Por Marcas</button>
+
+        <button class="mat-elevation-z8" (click)="navegarParaQuantidadeVeiculo()" mat-stroked-button
+        color="primary">Quantidade Por Decadas</button>
+
+    <!-- Filtrando Por Atributos -->
+    <form>
+        <mat-form-field class="form" appearance="fill">
+            <mat-label>Marca</mat-label>
+            <mat-select [(ngModel)]="veiculoObj.marca" required type="text" name="marca" placeholder="Ex. Fiat">
+                <mat-option *ngFor="let marca of marcas" [value]="marca">{{marca}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="form">
+            <mat-label>Ano</mat-label>
+            <input matInput [(ngModel)]="veiculoObj.ano" required type="number" name="cor"
+                placeholder="Ex. Azul/preto/vermelho">
+        </mat-form-field>
+
+        <mat-form-field class="form">
+            <mat-label>Cor</mat-label>
+            <input matInput [(ngModel)]="veiculoObj.cor" required type="text" name="cor"
+                placeholder="Ex. Azul/preto/vermelho">
+        </mat-form-field>
+
+        <button  (click)="findAllFilter()" class="mat-elevation-z8" mat-stroked-button color="primary">Filtrar</button>
+
+        <button  (click)="findAllRemoverfiltros()" class="mat-elevation-z8" mat-stroked-button color="primary">Remover Filtros</button>
+
+    </form>
+
+
+    <div class="mat-elevation-z8 content-table">
+        <table class="table" mat-table [dataSource]="veiculoLista">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <th mat-cell *matCellDef="let row"> {{row.id}} </th>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="veiculo">
+                <th mat-header-cell *matHeaderCellDef> Veiculo </th>
+                <td mat-cell *matCellDef="let row"> {{row.veiculo}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="marca">
+                <th mat-header-cell *matHeaderCellDef> Marca </th>
+                <td mat-cell *matCellDef="let row"> {{row.marca}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="ano">
+                <th mat-header-cell *matHeaderCellDef> Ano </th>
+                <td mat-cell *matCellDef="let row"> {{row.ano}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="cor">
+                <th mat-header-cell *matHeaderCellDef> Cor </th>
+                <td mat-cell *matCellDef="let row"> {{row.cor}} </td>
+            </ng-container>
+
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="descricao">
+                <th mat-header-cell *matHeaderCellDef> Descrição </th>
+                <td mat-cell *matCellDef="let row"> {{row.descricao}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="vendido">
+                <th mat-header-cell *matHeaderCellDef> Vendido </th>
+                <td mat-cell *matCellDef="let row"> {{row.vendido}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="created">
+                <th mat-header-cell *matHeaderCellDef> Created </th>
+                <td mat-cell *matCellDef="let row"> {{row.created}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="updated">
+                <th mat-header-cell *matHeaderCellDef> Updated </th>
+                <td mat-cell *matCellDef="let row"> {{row.updated}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="acoes">
+                <th class="mat-header" mat-header-cell *matHeaderCellDef> AÇÕES </th>
+                <td mat-cell *matCellDef="let row">
+                    <a class="edit" routerLink="update/{{row.id}}">
+                        <i class="material-icons">edit</i>
+                    </a>
+                    <a class="delete" routerLink="delete/{{ row.id }}">
+                        <!-- essa rota pega o Id para fazer o Delete -->
+                        <i class="material-icons">delete</i>
+                    </a>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+</div>

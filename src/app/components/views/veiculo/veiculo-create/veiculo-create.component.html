@@ -1,0 +1,54 @@
+<form>
+    <h1>Criando novo Veiculo</h1>
+
+    <mat-form-field class="form">
+        <mat-label>Nome do Veiculo</mat-label>
+        <input matInput [(ngModel)]="veiculoObj.veiculo" required type="text" name="veiculo" placeholder="Ex. Punto"
+            maxlength="50">
+    </mat-form-field>
+
+    <mat-form-field class="form" appearance="fill">
+        <mat-label>Marca</mat-label>
+        <mat-select [(ngModel)]="veiculoObj.marca" required type="text" name="marca" placeholder="Ex. Fiat">
+            <mat-option *ngFor="let marca of marcas" [value]="marca">{{marca}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Ano de Fabricação</mat-label>
+        <input matInput [(ngModel)]="veiculoObj.ano" required type="number" name="ano" placeholder="Ex. 2010">
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Cor</mat-label>
+        <input matInput [(ngModel)]="veiculoObj.cor" required type="text" name="cor"
+            placeholder="Ex. Azul/preto/vermelho">
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Descricão</mat-label>
+        <input matInput [(ngModel)]="veiculoObj.descricao" required type="text" name="descricao"
+            placeholder="Ex. Azul/preto/vermelho">
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Vendido</mat-label>
+        <input matInput [(ngModel)]="veiculoObj.vendido" required type="text" name="vendido">
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Criado</mat-label>
+        <input matInput [(ngModel)]="veiculoObj.created" date-only="." required type="date" name="created">
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Atualizado</mat-label>
+        <input matInput [(ngModel)]="veiculoObj.updated" date-only="." required type="date" name="updated">
+    </mat-form-field>
+
+    <div class="buttons">
+        <button (click)="create()" class="mat-elevation-z8" mat-stroked-button color="primary">Criar</button>
+        <button (click)="cancel()" class="mat-elevation-z8" mat-stroked-button color="warn">Cancelar</button>
+    </div>
+
+</form>
